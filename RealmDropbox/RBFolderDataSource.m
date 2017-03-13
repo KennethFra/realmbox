@@ -2,7 +2,7 @@
 //  RBFolderDataSource.m
 //  Realmbox
 //
-//  Created by Toptal on 3/12/17.
+//  Created by Ken Franklin on 3/12/17.
 //  Copyright © 2017 GnasherMobilesoft. All rights reserved.
 //
 
@@ -119,10 +119,11 @@
      if (editingStyle == UITableViewCellEditingStyleDelete) {
          
          DropboxMeta * meta = [self itemAtIndexPath:indexPath];
+         
+         NSString * messageFormat = NSLocalizedString(@"Are you sure you want to delete '%@'? (You can undo this on Dropbox.com)", @"Message for delete alert");
+         UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:messageFormat, meta.name] preferredStyle:UIAlertControllerStyleAlert];
 
-         UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"Are you sure you want to delete '%@'? (You can undo this on Dropbox.com)", meta.name] preferredStyle:UIAlertControllerStyleAlert];
-
-         [alert addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+         [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Delete", @"Text for delete alert") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
              [[[DBClientsManager authorizedClient].filesRoutes delete_:meta.path]
                 setResponseBlock:^(DBFILESMetadata * _Nullable deletedMeta, DBFILESDeleteError * _Nullable deleteError, DBRequestError * _Nullable requestError) {
                     RBError * error = [RBError errorWithDBErrorObject:deleteError ? deleteError : requestError];
@@ -133,7 +134,7 @@
               }];
          }]];
          
-         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+         [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Text for cancel button") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
          }]];
          
          [alert show:true];

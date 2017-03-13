@@ -135,6 +135,8 @@
 		716BEC781E75A5D200B1B451 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				716BECAC1E75C39600B1B451 /* RBError.h */,
+				716BECAD1E75C39600B1B451 /* RBError.m */,
 				716BECB01E75C39600B1B451 /* Reachability.h */,
 				716BECB11E75C39600B1B451 /* Reachability.m */,
 				716BECA21E75B49100B1B451 /* UIAlertController+Window.h */,
@@ -167,8 +169,6 @@
 				716BECBC1E75C55E00B1B451 /* RBFolderCoordinator.m */,
 				716BECA81E75C39600B1B451 /* RBDropboxSync.h */,
 				716BECA91E75C39600B1B451 /* RBDropboxSync.m */,
-				716BECAC1E75C39600B1B451 /* RBError.h */,
-				716BECAD1E75C39600B1B451 /* RBError.m */,
 				716BECAE1E75C39600B1B451 /* RBReachability.h */,
 				716BECAF1E75C39600B1B451 /* RBReachability.m */,
 			);

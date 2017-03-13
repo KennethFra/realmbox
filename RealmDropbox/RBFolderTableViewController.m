@@ -104,7 +104,6 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     DropboxMeta * meta = [self.dataSource itemAtIndexPath:indexPath];
     
     if (meta.isFolder) {

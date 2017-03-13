@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 /**
  Displays a list of files and folders for the corresponding folderpath.
  */

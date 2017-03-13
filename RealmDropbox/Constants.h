@@ -2,7 +2,7 @@
 //  Constants.h
 //  Realmbox
 //
-//  Created by Toptal on 3/12/17.
+//  Created by Ken Franklin on 3/12/17.
 //  Copyright © 2017 GnasherMobilesoft. All rights reserved.
 //
 
@@ -26,7 +26,6 @@ void dispatch_async_serial_userinitiated_block(dispatch_block_t block);
 void dispatch_async_serial_utility_block(dispatch_block_t block);
 void dispatch_async_serial_background_block(dispatch_block_t block);
 void dispatch_background_high(dispatch_block_t block);
-
 
 extern NSString * kRootFolder;
 

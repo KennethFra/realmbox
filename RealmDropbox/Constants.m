@@ -2,7 +2,7 @@
 //  Constants.m
 //  Realmbox
 //
-//  Created by Toptal on 3/12/17.
+//  Created by Ken Franklin on 3/12/17.
 //  Copyright © 2017 GnasherMobilesoft. All rights reserved.
 //
 
@@ -14,6 +14,12 @@ NSString * kRootFolder = @"/";
 @implementation Constants
 @end
 
+
+/**
+ Checks to see if the code is currently executing on the main thread, if not, it dispatches to the main queue
+
+ @param block Code to be executed in the main thread
+ */
 void dispatch_mainqueue(dispatch_block_t block) {
     if ([NSThread isMainThread]) {
         block();
@@ -24,7 +30,6 @@ void dispatch_mainqueue(dispatch_block_t block) {
         });
     }
 }
-
 
 void dispatch_background_default(dispatch_block_t block) {
     
@@ -63,7 +68,7 @@ void dispatch_async_serial_userinteractive_block(dispatch_block_t block) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dispatch_queue_attr_t attributes = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_SERIAL, QOS_CLASS_USER_INTERACTIVE, QOS_MIN_RELATIVE_PRIORITY);
-        userinteractive_serial_queue = dispatch_queue_create("co.popsa.queue.general.qos.user-interactive", attributes);
+        userinteractive_serial_queue = dispatch_queue_create("com.gnashermobilesoft.queue.general.qos.user-interactive", attributes);
     });
     
     dispatch_async(userinteractive_serial_queue, ^{
@@ -80,7 +85,7 @@ void dispatch_async_serial_userinitiated_block(dispatch_block_t block) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dispatch_queue_attr_t attributes = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_SERIAL, QOS_CLASS_USER_INITIATED, QOS_MIN_RELATIVE_PRIORITY);
-        userinitiated_serial_queue = dispatch_queue_create("co.popsa.queue.general.qos.user-initiated", attributes);
+        userinitiated_serial_queue = dispatch_queue_create("com.gnashermobilesoft.queue.general.qos.user-initiated", attributes);
     });
     
     dispatch_async(userinitiated_serial_queue, ^{
@@ -97,7 +102,7 @@ void dispatch_async_serial_utility_block(dispatch_block_t block) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dispatch_queue_attr_t attributes = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_SERIAL, QOS_CLASS_UTILITY, QOS_MIN_RELATIVE_PRIORITY);
-        utility_queue = dispatch_queue_create("co.popsa.queue.general.qos.utility", attributes);
+        utility_queue = dispatch_queue_create("com.gnashermobilesoft.queue.general.qos.utility", attributes);
     });
     
     dispatch_async(utility_queue, ^{
@@ -113,7 +118,7 @@ void dispatch_async_concurrent_utility_block(dispatch_block_t block) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dispatch_queue_attr_t attributes = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_CONCURRENT, QOS_CLASS_UTILITY, QOS_MIN_RELATIVE_PRIORITY);
-        utility_queue_concurrent = dispatch_queue_create("co.popsa.queue.concurrent.general.qos.utility", attributes);
+        utility_queue_concurrent = dispatch_queue_create("com.gnashermobilesoft.queue.concurrent.general.qos.utility", attributes);
     });
     
     dispatch_async(utility_queue_concurrent, block);
@@ -125,7 +130,7 @@ void dispatch_async_serial_background_block(dispatch_block_t block) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dispatch_queue_attr_t attributes = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_SERIAL, QOS_CLASS_BACKGROUND, QOS_MIN_RELATIVE_PRIORITY);
-        background_serial_queue = dispatch_queue_create("co.popsa.queue.general.qos.background", attributes);
+        background_serial_queue = dispatch_queue_create("com.gnashermobilesoft.queue.general.qos.background", attributes);
     });
     
     dispatch_async(background_serial_queue, ^{
