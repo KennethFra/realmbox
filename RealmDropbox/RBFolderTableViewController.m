@@ -93,6 +93,7 @@
 - (void) logInOutButtonAction:(UIBarButtonItem *) button {
     if ([DBClientsManager authorizedClient]) {
         [DBClientsManager unlinkAndResetClients];
+        [[RLMManager sharedInstance] deleteEntriesForFolder:kRootFolder];
         [self configureBarButtons];
     }
     else {

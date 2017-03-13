@@ -55,6 +55,7 @@
         case DBAuthCancel:
             break;
         case DBAuthSuccess:
+            [[RBDropboxSync sharedInstance] startPolling:true];
             [[NSNotificationCenter defaultCenter] postNotificationName:NotificationCloudManagerLoginChanged object:nil];
             break;
         default:
