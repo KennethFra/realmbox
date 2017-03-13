@@ -1,0 +1,17 @@
+PODS:
+  - ObjectiveDropboxOfficial (3.0.4)
+  - Realm (2.4.3):
+    - Realm/Headers (= 2.4.3)
+  - Realm/Headers (2.4.3)
+
+DEPENDENCIES:
+  - ObjectiveDropboxOfficial
+  - Realm
+
+SPEC CHECKSUMS:
+  ObjectiveDropboxOfficial: 3d59f2f0106fac447b2a830e6c922c1b1d7dc4cd
+  Realm: e08d60b0048ccccd3949c8c28a92c4db5712d7e9
+
+PODFILE CHECKSUM: f954151a2525f308abae3be9625fe85581400951
+
+COCOAPODS: 1.2.0
