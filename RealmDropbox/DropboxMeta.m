@@ -13,10 +13,23 @@
 
 @implementation DropboxMeta
 
+
+/**
+ You must supply a primary key to Realm if you want efficient searches
+
+ @return <#return value description#>
+ */
 + (NSString *)primaryKey {
     return @"path_lower";
 }
 
+
+/**
+ Worker method to convert DBFilesMetadata into a DropboxMeta object.
+
+ @param metadata DBFilesMetadata object
+ @return instance of DropboxMeta or NIL
+ */
 - (instancetype) initWithMetadata:(DBFILESMetadata *) metadata {
     
     if (metadata == nil) return nil;
@@ -78,6 +91,11 @@
 }
 
 
+/**
+ Convienience Methods
+
+ @return Converts from timeIntervalSinceReferenceDate to NSDate
+ */
 - (NSDate *) lastModifiedDate {
     if (self.client_modified) {
         return [NSDate dateWithTimeIntervalSinceReferenceDate:[self.client_modified doubleValue]];
@@ -105,7 +123,6 @@
     newMeta.client_modified = @([[NSDate date] timeIntervalSinceReferenceDate]);
     newMeta.isDeleted = false;
     newMeta.isFolder = false;
-    newMeta.revModified = nil;
     
     return newMeta;
 }

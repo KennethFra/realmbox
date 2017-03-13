@@ -19,8 +19,6 @@ typedef void (^ContentsResponseBlock)(id _Nullable contents, NSError * _Nullable
 
 @property BOOL isDeleted;
 
-@property NSString * _Null_unspecified revModified; // When a file is edited, we store the rev of the original. Means it needs
-                                                    // To be synchronized
 @property BOOL isFolder;
 
 @property NSString * _Null_unspecified parentFolder;

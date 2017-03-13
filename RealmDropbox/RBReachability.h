@@ -13,7 +13,7 @@
 
 
 /**
- Wraper class for Reachability. 
+ Wrapper class for Reachability. 
  */
 @property (nonatomic, strong) Reachability *internetReachability;
 
